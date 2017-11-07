@@ -100,7 +100,7 @@ namespace Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv.Internal.Networkin
 
                     // Fast path for single buffer
                     pBuffers[0] = Libuv.buf_init(
-                            (IntPtr)memoryHandle.PinnedPointer,
+                            (IntPtr)memoryHandle.Pointer,
                             memory.Length);
                 }
                 else
@@ -114,7 +114,7 @@ namespace Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv.Internal.Networkin
 
                         // create and pin each segment being written
                         pBuffers[index] = Libuv.buf_init(
-                            (IntPtr)memoryHandle.PinnedPointer,
+                            (IntPtr)memoryHandle.Pointer,
                             memory.Length);
                         index++;
                     }
